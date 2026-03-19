@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌸 女性创业者内在充电站</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gradient: linear-gradient(135deg, #c9a8e9 0%, #d4a5a5 50%, #a8d4a5 100%);
+            --soft-gradient: linear-gradient(135deg, rgba(201, 168, 233, 0.1) 0%, rgba(212, 165, 165, 0.1) 100%);
+            --text-primary: #2d2d2d;
+            --text-secondary: #5a5a5a;
+            --accent-purple: #8b5eb5;
+            --accent-pink: #c9a8e9;
+            --accent-green: #a8d4a5;
+            --card-shadow: 0 4px 24px rgba(139, 94, 181, 0.12);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: #fef9f5;
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* Floating Background Elements */
+        .floating-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.15;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .floating-shape:nth-child(1) {
+            width: 300px;
+            height: 300px;
+            background: var(--accent-purple);
+            top: -100px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+
+        .floating-shape:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            background: var(--accent-pink);
+            bottom: 20%;
+            left: -80px;
+            animation-delay: 5s;
+        }
+
+        .floating-shape:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            background: var(--accent-green);
+            top: 40%;
+            right: 10%;
+            animation-delay: 10s;
+        }
+
+        .floating-shape:nth-child(4) {
+            width: 180px;
+            height: 180px;
+            background: #ffb3ba;
+            bottom: 10%;
+            right: 20%;
+            animation-delay: 15s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(20px, -20px) rotate(5deg); }
+            50% { transform: translate(-10px, 10px) rotate(-5deg); }
+            75% { transform: translate(-20px, -20px) rotate(3deg); }
+        }
+
+        /* Main Container */
+        .main-container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Hero Section - Mission & Vision */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(254,249,245,0.95) 100%);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-symbol {
+            font-size: 64px;
+            margin-bottom: 20px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .hero-title {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+        }
+
+        .hero-subtitle {
+            font-size: 24px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .mission-vision-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin: 48px 0;
+        }
+
+        .mission-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: var(--card-shadow);
+            border: 1px solid rgba(201, 168, 233, 0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--primary-gradient);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .mission-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .mission-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(139, 94, 181, 0.2);
+        }
+
+        .mission-card-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .mission-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--accent-purple);
+        }
+
+        .mission-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        /* Values Section */
+        .values-section {
+            padding: 80px 20px;
+            background: linear-gradient(180deg, #fef9f5 0%, #fdf7f2 100%);
+        }
+
+        .values-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 60px;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 40px 30px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 24px;
+            box-shadow: var(--card-shadow);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(201, 168, 233, 0.15);
+        }
+
+        .value-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 16px 48px rgba(139, 94, 181, 0.25);
+            border-color: var(--accent-purple);
+        }
+
+        .value-emoji {
+            font-size: 64px;
+            margin-bottom: 24px;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .value-card:hover .value-emoji {
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        .value-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+
+        .value-desc {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        /* Culture Section */
+        .culture-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, rgba(201, 168, 233, 0.08) 0%, rgba(212, 165, 165, 0.08) 100%);
+            text-align: center;
+        }
+
+        .culture-quote {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--accent-purple);
+            max-width: 900px;
+            margin: 0 auto 40px;
+            line-height: 1.5;
+            position: relative;
+        }
+
+        .culture-quote::before {
+            content: '"';
+            position: absolute;
+            top: -40px;
+            left: -20px;
+            font-size: 120px;
+            color: rgba(139, 94, 181, 0.1);
+            line-height: 1;
+        }
+
+        .culture-principles {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1000px;
+            margin: 60px auto 0;
+        }
+
+        .culture-badge {
+            padding: 16px 32px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--accent-purple);
+            box-shadow: 0 4px 16px rgba(139, 94, 181, 0.12);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .culture-badge:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-purple);
+            box-shadow: 0 8px 24px rgba(139, 94, 181, 0.2);
+        }
+
+        /* Navigation */
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 16px 24px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 22px;
+            font-weight: 600;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 8px;
+        }
+
+        .nav-link {
+            padding: 10px 20px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 15px;
+            color: var(--text-secondary);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-purple);
+            background: var(--soft-gradient);
+        }
+
+        .nav-link.active {
+            background: var(--primary-gradient);
+            color: white;
+        }
+
+        /* App Sections */
+        .app-section {
+            display: none;
+            padding: 100px 20px;
+            min-height: 100vh;
+        }
+
+        .app-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .section-title {
+            font-size: 40px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 16px;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 48px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Self Map Form */
+        .self-map-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .self-map-form {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 32px;
+            padding: 48px;
+            box-shadow: 0 8px 32px rgba(139, 94, 181, 0.15);
+        }
+
+        .form-group {
+            margin-bottom: 32px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 16px;
+        }
+
+        .form-input,
+        .form-textarea,
+        .form-select {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid rgba(201, 168, 233, 0.3);
+            border-radius: 16px;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 0 4px rgba(139, 94, 181, 0.1);
+        }
+
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .tag-button {
+            padding: 12px 24px;
+            border: 2px solid rgba(201, 168, 233, 0.3);
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 25px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .tag-button:hover {
+            border-color: var(--accent-purple);
+            transform: translateY(-2px);
+        }
+
+        .tag-button.selected {
+            background: var(--primary-gradient);
+            border-color: transparent;
+            color: white;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            border-radius: 16px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 24px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(139, 94, 181, 0.3);
+        }
+
+        /* Resonance Square */
+        .post-editor {
+            max-width: 800px;
+            margin: 0 auto 48px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: 0 4px 20px rgba(139, 94, 181, 0.12);
+        }
+
+        .post-editor textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 16px;
+            border: 2px solid rgba(201, 168, 233, 0.3);
+            border-radius: 16px;
+            font-size: 15px;
+            resize: vertical;
+            font-family: inherit;
+            margin-bottom: 16px;
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .post-editor textarea:focus {
+            outline: none;
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 0 4px rgba(139, 94, 181, 0.1);
+        }
+
+        .post-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .posts-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .post-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 24px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 20px rgba(139, 94, 181, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(201, 168, 233, 0.1);
+        }
+
+        .post-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 28px rgba(139, 94, 181, 0.15);
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .post-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--primary-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 24px;
+        }
+
+        .post-author {
+            flex: 1;
+        }
+
+        .post-name {
+            font-weight: 600;
+            font-size: 16px;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .post-tag {
+            display: inline-block;
+            padding: 6px 16px;
+            background: var(--soft-gradient);
+            border-radius: 20px;
+            font-size: 13px;
+            color: var(--accent-purple);
+            font-weight: 500;
+        }
+
+        .post-content {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        .post-footer {
+            display: flex;
+            gap: 24px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(201, 168, 233, 0.15);
+        }
+
+        .post-action {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 14px;
+            font-weight: 500;
+            background: none;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+
+        .post-action:hover {
+            background: var(--soft-gradient);
+            color: var(--accent-purple);
+        }
+
+        /* Start Button */
+        .start-btn {
+            padding: 18px 48px;
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 24px rgba(139, 94, 181, 0.3);
+            letter-spacing: 0.5px;
+        }
+
+        .start-btn:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 12px 32px rgba(139, 94, 181, 0.4);
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 80px 40px;
+            color: var(--text-secondary);
+        }
+
+        .empty-state-icon {
+            font-size: 80px;
+            margin-bottom: 24px;
+            opacity: 0.3;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .hero-subtitle {
+                font-size: 18px;
+            }
+
+            .culture-quote {
+                font-size: 24px;
+            }
+
+            .values-title {
+                font-size: 28px;
+            }
+
+            .self-map-form {
+                padding: 32px 24px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Background -->
+    <div class="floating-bg">
+        <div class="floating-shape"></div>
+        <div class="floating-shape"></div>
+        <div class="floating-shape"></div>
+        <div class="floating-shape"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <div class="nav-logo">🌸 女性创业者内在充电站</div>
+        <div class="nav-links">
+            <button class="nav-link active" onclick="showSection('home')">首页</button>
+            <button class="nav-link" onclick="showSection('selfmap')">自我地图</button>
+            <button class="nav-link" onclick="showSection('resonance')">共鸣广场</button>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="app-section active">
+        <!-- Hero -->
+        <div class="hero-section">
+            <div class="hero-content">
+                <div class="hero-symbol">🌸</div>
+                <h1 class="hero-title">女性创业者内在充电站</h1>
+                <p class="hero-subtitle">找到自己 · 找到同伴 · 找到前进的力量</p>
+
+                <div class="mission-vision-cards">
+                    <div class="mission-card">
+                        <span class="mission-card-icon">🎯</span>
+                        <h3>使命</h3>
+                        <p>赋能每一位女性创业者，让她们在真实的自我中找到力量，在彼此的支持中获得成长</p>
+                    </div>
+
+                    <div class="mission-card">
+                        <span class="mission-card-icon">🌟</span>
+                        <h3>愿景</h3>
+                        <p>成为每一位女性创业者的精神家园，这里没有评判，只有看见；没有孤独，只有陪伴</p>
+                    </div>
+
+                    <div class="mission-card">
+                        <span class="mission-card-icon">💎</span>
+                        <h3>核心价值</h3>
+                        <p>真实是力量的源头，共鸣是成长的土壤，每一个女性都值得被看见和支持</p>
+                    </div>
+                </div>
+
+                <button class="start-btn" onclick="showSection('selfmap')">开始你的成长之旅</button>
+            </div>
+        </div>
+
+        <!-- Values Section -->
+        <div class="values-section">
+            <h2 class="values-title">我们珍视的价值观</h2>
+
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-emoji">✨</div>
+                    <h3 class="value-title">真实</h3>
+                    <p class="value-desc">这里不需要完美，只需要真实。你的困惑、挣扎、失败，和你的成功一样珍贵。</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-emoji">🔥</div>
+                    <h3 class="value-title">温暖</h3>
+                    <p class="value-desc">每一份分享都值得被看见，每一次困惑都值得被倾听。我们用温暖回应脆弱。</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-emoji">🌱</div>
+                    <h3 class="value-title">成长</h3>
+                    <p class="value-desc">创业是一场自我探索。在这里，你收获的不仅是方法，更是对自己的重新认识。</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-emoji">🤝</div>
+                    <h3 class="value-title">支持</h3>
+                    <p class="value-desc">我们相信"一起"的力量。没有人是一座孤岛，每个人都是彼此的光。</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-emoji">💪</div>
+                    <h3 class="value-title">独立</h3>
+                    <p class="value-desc">女性的力量不是对抗，而是内在的觉醒和独立。你的声音值得被听见。</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-emoji">🌟</div>
+                    <h3 class="value-title">赋能</h3>
+                    <p class="value-desc">我们提供土壤和阳光，让你绽放自己的光彩。你的成长，就是我们的价值。</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Culture Section -->
+        <div class="culture-section">
+            <div class="culture-quote">
+                不是为了证明什么，而是为了成为自己。
+            </div>
+
+            <div class="culture-principles">
+                <div class="culture-badge">💫 每个人都是独一无二的</div>
+                <div class="culture-badge">🌸 柔软不是软弱</div>
+                <div class="culture-badge">💎 失败是成长的礼物</div>
+                <div class="culture-badge">🔥 诚实面对自己</div>
+                <div class="culture-badge">🤝 我们相互看见</div>
+                <div class="culture-badge">✨ 共创而非竞争</div>
+                <div class="culture-badge">🌱 相信时间的力量</div>
+                <div class="culture-badge">💪 女性内在的力量</div>
+                <div class="culture-badge">🎯 专注内在成长</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Self Map Section -->
+    <section id="selfmap" class="app-section">
+        <h2 class="section-title">🗺️ 绘制你的自我地图</h2>
+        <p class="section-subtitle">认识自己是成长的开始。这里没有标准答案，只有你的真实表达。</p>
+
+        <div class="self-map-container">
+            <div class="self-map-form">
+                <div class="form-group">
+                    <label class="form-label">你的名字 / 昵称</label>
+                    <input type="text" class="form-input" id="userName" placeholder="可以真实，也可以用一个代号">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">你在哪个创业阶段？</label>
+                    <select class="form-select" id="userStage">
+                        <option value="exploring">🌱 探索期：有一个想法，还在摸索</option>
+                        <option value="starting">🚀 起步期：刚开始做，在实践中学习</option>
+                        <option value="growing">🌟 成长期：有了一些成果，在快速迭代</option>
+                        <option value="expanding">💎 扩张期：模式验证后，在规模化</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">你最想解决的一个挑战是什么？</label>
+                    <textarea class="form-textarea" id="userChallenge" placeholder="比如：不知道怎么开始、总是自我怀疑、找不到同频的人、现金流压力大、不知道自己的优势在哪里……真实就好。"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">你的特质是什么？选择最打动你的 3 个</label>
+                    <div class="tags-container" id="traitTags">
+                        <button class="tag-button" onclick="selectTrait(this)">🔮 直觉敏锐</button>
+                        <button class="tag-button" onclick="selectTrait(this)">🧩 系统性思维</button>
+                        <button class="tag-button" onclick="selectTrait(this)">🎨 创意驱动</button>
+                        <button class="tag-button" onclick="selectTrait(this)">💪 坚韧不拔</button>
+                        <button class="tag-button" onclick="selectTrait(this)">👂 善于倾听</button>
+                        <button class="tag-button" onclick="selectTrait(this)">🗣️ 善于表达</button>
+                        <button class="tag-button" onclick="selectTrait(this)">⚡ 行动力强</button>
+                        <button class="tag-button" onclick="selectTrait(this)">🤝 善于协作</button>
+                        <button class="tag-button" onclick="selectTrait(this)">📚 学习力强</button>
+                        <button class="tag-button" onclick="selectTrait(this)">🧠 独立思考</button>
+                        <button class="tag-button" onclick="selectTrait(this)">💕 同理心强</button>
+                        <button class="tag-button" onclick="selectTrait(this)">🌟 好奇心强</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">你想从充电站获得什么？</label>
+                    <div class="tags-container" id="needTags">
+                        <button class="tag-button" onclick="selectNeed(this)">🫂 情绪支持</button>
+                        <button class="tag-button" onclick="selectNeed(this)">📖 方法指导</button>
+                        <button class="tag-button" onclick="selectNeed(this)">🤝 同伴共创</button>
+                        <button class="tag-button" onclick="selectNeed(this)">💬 教练对话</button>
+                        <button class="tag-button" onclick="selectNeed(this)">💡 灵感激发</button>
+                        <button class="tag-button" onclick="selectNeed(this)">🔗 资源连接</button>
+                        <button class="tag-button" onclick="selectNeed(this)">🏠 信任空间</button>
+                        <button class="tag-button" onclick="selectNeed(this)">📝 真实反馈</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">你想对未来的自己说一句话</label>
+                    <textarea class="form-textarea" id="userMessage" placeholder="写给 3 年后的自己……"></textarea>
+                </div>
+
+                <button class="submit-btn" onclick="saveSelfMap()">✨ 保存我的自我地图</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resonance Square Section -->
+    <section id="resonance" class="app-section">
+        <h2 class="section-title">💫 共鸣广场</h2>
+        <p class="section-subtitle">在这里，你的每一个想法都被看见。真实分享，彼此照亮。</p>
+
+        <div class="post-editor">
+            <textarea id="postContent" placeholder="今天想分享点什么？真实的想法、感受、困惑、突破……都可以。这里没有评判，只有看见。"></textarea>
+            <div class="post-actions">
+                <div class="tags-container">
+                    <button class="tag-button" onclick="selectPostTag(this)">📖 真实故事</button>
+                    <button class="tag-button" onclick="selectPostTag(this)">💭 这一刻我想说</button>
+                    <button class="tag-button" onclick="selectPostTag(this)">💡 灵感时刻</button>
+                    <button class="tag-button" onclick="selectPostTag(this)">❓ 困惑分享</button>
+                    <button class="tag-button" onclick="selectPostTag(this)">🎉 小庆祝</button>
+                    <button class="tag-button" onclick="selectPostTag(this)">📚 学到的教训</button>
+                </div>
+                <button class="start-btn" onclick="createPost()" style="padding: 12px 32px; font-size: 16px;">发布</button>
+            </div>
+        </div>
+
+        <div class="posts-container" id="postsContainer">
+            <!-- Posts will be dynamically loaded here -->
+        </div>
+
+        <div class="empty-state" id="emptyState" style="display: none;">
+            <div class="empty-state-icon">🌸</div>
+            <p>还没有人分享，你来第一个吧！</p>
+        </div>
+    </section>
+
+    <script>
+        // Data Storage
+        const STORAGE_KEY = 'womenfounders_data';
+        let appData = {
+            users: [],
+            posts: []
+        };
+
+        function loadData() {
+            const saved = localStorage.getItem(STORAGE_KEY);
+            if (saved) {
+                appData = JSON.parse(saved);
+            }
+        }
+
+        function saveData() {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(appData));
+        }
+
+        // Navigation
+        function showSection(sectionId) {
+            // Update nav
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            event?.target?.classList?.add('active');
+
+            // Show section
+            document.querySelectorAll('.app-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+
+            // Load posts if resonance
+            if (sectionId === 'resonance') {
+                renderPosts();
+            }
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Tag Selection
+        let selectedTraits = [];
+        let selectedNeeds = [];
+        let selectedPostTag = '';
+
+        function selectTrait(button) {
+            const trait = button.textContent;
+            if (selectedTraits.includes(trait)) {
+                selectedTraits = selectedTraits.filter(t => t !== trait);
+                button.classList.remove('selected');
+            } else {
+                if (selectedTraits.length >= 3) {
+                    alert('最多选择 3 个特质');
+                    return;
+                }
+                selectedTraits.push(trait);
+                button.classList.add('selected');
+            }
+        }
+
+        function selectNeed(button) {
+            const need = button.textContent;
+            if (selectedNeeds.includes(need)) {
+                selectedNeeds = selectedNeeds.filter(n => n !== need);
+                button.classList.remove('selected');
+            } else {
+                if (selectedNeeds.length >= 3) {
+                    alert('最多选择 3 个需求');
+                    return;
+                }
+                selectedNeeds.push(need);
+                button.classList.add('selected');
+            }
+        }
+
+        function selectPostTag(button) {
+            document.querySelectorAll('#resonance .tag-button').forEach(tag => {
+                tag.classList.remove('selected');
+            });
+            selectedPostTag = button.textContent;
+            button.classList.add('selected');
+        }
+
+        // Save Self Map
+        function saveSelfMap() {
+            const userName = document.getElementById('userName').value.trim();
+            const userStage = document.getElementById('userStage').value;
+            const userChallenge = document.getElementById('userChallenge').value.trim();
+            const userMessage = document.getElementById('userMessage').value.trim();
+
+            if (!userName) {
+                alert('请填写你的名字或昵称');
+                return;
+            }
+
+            if (selectedTraits.length === 0) {
+                alert('请选择至少 1 个特质');
+                return;
+            }
+
+            if (!userChallenge) {
+                alert('请描述你当前的挑战');
+                return;
+            }
+
+            const user = {
+                id: Date.now(),
+                name: userName,
+                stage: userStage,
+                challenge: userChallenge,
+                traits: selectedTraits,
+                needs: selectedNeeds,
+                message: userMessage,
+                createdAt: new Date().toISOString()
+            };
+
+            appData.users.push(user);
+            saveData();
+
+            alert('🎉 你的自我地图已经保存！欢迎加入充电站 💫\n\n现在去共鸣广场看看其他人的分享吧！');
+            showSection('resonance');
+        }
+
+        // Create Post
+        function createPost() {
+            const content = document.getElementById('postContent').value.trim();
+
+            if (!content) {
+                alert('请分享你想说的话');
+                return;
+            }
+
+            if (!selectedPostTag) {
+                alert('请选择一个标签');
+                return;
+            }
+
+            const currentUser = appData.users[appData.users.length - 1];
+
+            const post = {
+                id: Date.now(),
+                userId: currentUser ? currentUser.id : null,
+                userName: currentUser ? currentUser.name : '匿名伙伴',
+                userStage: currentUser ? currentUser.stage : null,
+                tag: selectedPostTag,
+                content: content,
+                energy: 0,
+                createdAt: new Date().toISOString()
+            };
+
+            appData.posts.unshift(post);
+            saveData();
+
+            document.getElementById('postContent').value = '';
+            selectedPostTag = '';
+            document.querySelectorAll('#resonance .tag-button').forEach(tag => {
+                tag.classList.remove('selected');
+            });
+
+            renderPosts();
+        }
+
+        // Render Posts
+        function renderPosts() {
+            const container = document.getElementById('postsContainer');
+            const emptyState = document.getElementById('emptyState');
+
+            if (appData.posts.length === 0) {
+                container.innerHTML = '';
+                emptyState.style.display = 'block';
+                return;
+            }
+
+            emptyState.style.display = 'none';
+            container.innerHTML = appData.posts.map(post => `
+                <div class="post-card">
+                    <div class="post-header">
+                        <div class="post-avatar">${getAvatarEmoji(post.userName)}</div>
+                        <div class="post-author">
+                            <div class="post-name">${post.userName}</div>
+                            <span class="post-tag">${post.tag}</span>
+                        </div>
+                    </div>
+                    <div class="post-content">${formatContent(post.content)}</div>
+                    <div class="post-footer">
+                        <button class="post-action" onclick="giveEnergy(${post.id})">
+                            ⚡ 投喂能量 (${post.energy})
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Give Energy
+        function giveEnergy(postId) {
+            const post = appData.posts.find(p => p.id === postId);
+            if (post) {
+                post.energy++;
+                saveData();
+                renderPosts();
+            }
+        }
+
+        // Helpers
+        function getAvatarEmoji(name) {
+            const emojis = ['🌸', '✨', '💫', '🌟', '💎', '🦋', '🌺', '🌼'];
+            const index = name.charCodeAt(0) % emojis.length;
+            return emojis[index];
+        }
+
+        function formatContent(content) {
+            return content.replace(/\n/g, '<br>');
+        }
+
+        // Initialize
+        loadData();
+        renderPosts();
+    </script>
+</body>
+</html>
